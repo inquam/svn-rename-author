@@ -1,0 +1,9 @@
+This is a small script to change the author of svn commits already made.
+My usage for this came up when the username format changed at work and
+we still wanted to be able to track all the old commits and statistics
+on a per-author basis.
+
+You are free to use and modify this script as long as you credit me and
+make your changes avalible to the public.
+
+Daniel Liljeberg <danielliljeberg@spray.se>
