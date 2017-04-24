@@ -10,9 +10,7 @@ Usage:
 
 To change the commits done by user "daniel.liljeberg" to "dli" do the following in your checked out folder
 
-```
- $ ./svn-rename-author daniel.liljeberg dli
-```
+$ ./svn-rename-author daniel.liljeberg dli
  
 Make sure that you have pre-revprop-change hook enabled for svn:author on the server
 
