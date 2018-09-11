@@ -12,7 +12,7 @@ echo -n "Are you sure you wish to change the authour of all commits made by \"$1
 read DOIT
 
 if [ "$DOIT" == "y" -o "$DOIT" == "Y" ]; then
-  for f in `svn log | grep "^r[0-9]* | $1" | cut -c 2- | awk '{print $1}'`
+  for f in `svn log | grep "^r[0-9]* | $1 |" | cut -c 2- | awk '{print $1}'`
   do
     svn propset --revprop -r $f svn:author $2
   done
