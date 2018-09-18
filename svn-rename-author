@@ -3,7 +3,7 @@
 # Description  : Change author name of authors old commits.
 # $Id$
 
-if [ $# -lt 1 -o "$1" = "--help" -o "$1" = "" -o "$2" = "" ]; then
+if [ "$#" -ne 2 -o "$1" = "--help" ]; then
   echo "Usage: $0 old-user-name new-user-name"
   exit
 fi
