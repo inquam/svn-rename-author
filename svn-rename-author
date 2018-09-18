@@ -8,7 +8,7 @@ if [ $# -lt 1 -o "$1" = "--help" -o "$1" = "" -o "$2" = "" ]; then
   exit
 fi
 
-echo -n "Are you sure you wish to change the author of all commits made by \"$1\" to \"$2\" (Y to continue)? "
+echo -n "Are you sure you wish to change the author of all commits made by '$1' to '$2'? [Y/n] "
 read DOIT
 
 if [ "$DOIT" = "y" -o "$DOIT" = "Y" ]; then
