@@ -3,7 +3,7 @@
 # Description  : Change author name of authors old commits.
 # $Id$
 
-if [ $# -lt 1 -o "$1" == "--help" -o "$1" == "" -o "$2" == "" ]; then
+if [ $# -lt 1 -o "$1" = "--help" -o "$1" = "" -o "$2" = "" ]; then
   echo "Usage: $0 old-user-name new-user-name"
   exit
 fi
@@ -11,7 +11,7 @@ fi
 echo -n "Are you sure you wish to change the authour of all commits made by \"$1\" to \"$2\" (Y to continue)? "
 read DOIT
 
-if [ "$DOIT" == "y" -o "$DOIT" == "Y" ]; then
+if [ "$DOIT" = "y" -o "$DOIT" = "Y" ]; then
   for f in `svn log | grep "^r[0-9]* | $1" | cut -c 2- | awk '{print $1}'`
   do
     svn propset --revprop -r $f svn:author $2
