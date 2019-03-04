@@ -8,15 +8,15 @@ if [ "$#" -ne 2 -o "$1" = "--help" ]; then
   exit
 fi
 
-echo -n "Are you sure you wish to change the author of all commits made by '$1' to '$2'? [Y/n] "
-read DOIT
+read -p "Are you sure you wish to change the author of all commits made by '$1' to '$2'? [Y/n] " DOIT
 
-if [ "$DOIT" = "y" -o "$DOIT" = "Y" ]; then
-  for f in `svn log | grep "^r[0-9]* | $1 |" | cut -c 2- | awk '{print $1}'`
-  do
-    svn propset --revprop -r $f svn:author $2
-  done
-  echo "Done"
-else
+if [ "$DOIT" != "y" -o "$DOIT" != "Y" ]; then
   echo "Aborting!"
+  exit
 fi
+
+svn log | grep "^r[0-9]* | "$1" |" | cut -c 2- | awk '{print $1}' | while read f
+do
+  svn propset --revprop -r "$f" svn:author "$2"
+done
+echo "Done"
