@@ -15,7 +15,7 @@ if [ "$DOIT" != "y" -o "$DOIT" != "Y" ]; then
   exit
 fi
 
-svn log | grep "^r[0-9]* | "$1" |" | cut -c 2- | awk '{print $1}' | while read f
+svn log | grep "^r[0-9]* | $1 |" | cut -c 2- | awk '{print $1}' | while read f
 do
   svn propset --revprop -r "$f" svn:author "$2"
 done
